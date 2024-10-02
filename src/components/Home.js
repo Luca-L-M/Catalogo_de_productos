@@ -1,7 +1,8 @@
 import React from 'react';
-import productos from './Productos';
 import { Link } from 'react-router-dom';
-import './Home.css'; // Importar el archivo de estilos para Home
+import '../assets/css/main.css'; // Importar el archivo de estilos para Home
+import productos from './Productos';
+import Carrousel from './Carrusel';
 
 const Home = () => {
     return (
@@ -15,7 +16,9 @@ const Home = () => {
         </nav>
 
         <div id="main">
-            <img alt=''/>
+
+            <Carrousel/>
+
             <article class="post featured">
                 <header class="major">
                     <h2>Productos destacados</h2>
