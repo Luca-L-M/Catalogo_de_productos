@@ -1,61 +1,58 @@
+import React, { useEffect, useRef, useState } from 'react';
 import '../assets/css/carrusel.css';
+import Productos from './Productos';
 
 const Carrousel = () => {
+  const [slideIndex, setSlideIndex] = useState(1);
+  const slidesRef = useRef([]);
+  const dotsRef = useRef([]);
 
-    let slideIndex = 1;
-    showSlides(slideIndex);
+  const showSlides = (n) => {
+      if (n > slidesRef.current.length) { setSlideIndex(1); }
+      if (n < 1) { setSlideIndex(slidesRef.current.length); }
 
-    // Next/previous controls
-    function plusSlides(n) {
-       showSlides(slideIndex += n);
-    }
+      slidesRef.current.forEach((slide, i) => {
+          slide.style.display = (i === slideIndex - 1) ? "block" : "none";
+      });
 
-    // Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
+      dotsRef.current.forEach((dot, i) => {
+          dot.className = dot.className.replace(" active", "");
+          if (i === slideIndex - 1) {
+              dot.className += " active";
+          }
+      });
+  };
 
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-    }
+  useEffect(() => {
+      showSlides(slideIndex);
+  }, [slideIndex]);
 
-    return (
-        <div class="slideshow-container">
-    
-          <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <img src="../assets/img/reloj-valkur.png" alt=''/>
-            <div class="text">Caption Text</div>
-          </div>
-        
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <img src="img2.jpg" alt=''/>
-            <div class="text">Caption Two</div>
-          </div>
-        
-          <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="img3.jpg" alt=''/>
-            <div class="text">Caption Three</div>
-          </div>
-        
-          <a class="prev" onclick={plusSlides(-1)}>&#10094;</a>
-          <a class="next" onclick={plusSlides(1)}>&#10095;</a>
-        </div>
-    )
-}
+  const plusSlides = (n) => {
+      setSlideIndex((prevIndex) => prevIndex + n);
+  };
+
+  return (
+    <div className="slideshow-container">
+      <div ref={el => slidesRef.current[0] = el} className="mySlides fade">
+        <img  src={Productos[0].img} alt='Reloj Valkur' />
+        <div className="text">Caption Text</div>
+      </div>
+
+      <div ref={el => slidesRef.current[1] = el} className="mySlides fade">
+        <img src={Productos[1].img} alt='Reloj Quartz' />
+        <div className="text">Caption Two</div>
+      </div>
+
+      <div ref={el => slidesRef.current[2] = el} className="mySlides fade">
+        <img src={Productos[2].img} alt='Reloj Seger' />
+        <div className="text">Caption Three</div>
+      </div>
+
+      <a className="prev" onClick={() => plusSlides(-1)}>&#10094;</a>
+      <a className="next" onClick={() => plusSlides(1)}>&#10095;</a>
+    </div>
+
+  );
+};
 
 export default Carrousel;

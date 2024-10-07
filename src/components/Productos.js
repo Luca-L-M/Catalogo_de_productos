@@ -1,172 +1,48 @@
+import img1 from "../assets/img/reloj-valkur.png";
+import img2 from '../assets/img/reloj-quartz.png';
+import img3 from '../assets/img/reloj-seger.png';
+import img4 from '../assets/img/reloj-dual.png';
 
 const Productos = [
     {
       "id":"1",
       "nombre":"Sinclair",
-      "apellido":"Stratley",
-      "email":"sstratley0@ocn.ne.jp",
-      "edad":"48"
+      "img":img1
     },
     {
       "id":"2",
-      "nombre":"Kristi",
-      "apellido":"Sloyan",
-      "email":"ksloyan1@scientificamerican.com",
-      "edad":"42"
+      "nombre":"Sinclair",
+      "img":img2
     },
     {
       "id":"3",
-      "nombre":"Marsiella",
-      "apellido":"Ferronier",
-      "email":"mferronier2@shareasale.com",
-      "edad":"40"
+      "nombre":"Sinclair",
+      "img":img3
     },
     {
       "id":"4",
-      "nombre":"Gunter",
-      "apellido":"Huson",
-      "email":"ghuson3@gmpg.org",
-      "edad":"54"
+      "nombre":"Sinclair",
+      "img":img4
     },
     {
       "id":"5",
-      "nombre":"Burl",
-      "apellido":"Iveson",
-      "email":"biveson4@ted.com",
-      "edad":"59"
+      "nombre":"Sinclair",
+      "img":''
     },
     {
       "id":"6",
-      "nombre":"Neysa",
-      "apellido":"Leveridge",
-      "email":"nleveridge5@gmpg.org",
-      "edad":"39"
+      "nombre":"Sinclair",
+      "img":"48"
     },
     {
       "id":"7",
-      "nombre":"Dan",
-      "apellido":"Sporner",
-      "email":"dsporner6@gnu.org",
-      "edad":"65"
+      "nombre":"Sinclair",
+      "img":"48"
     },
     {
       "id":"8",
-      "nombre":"Dinny",
-      "apellido":"Comford",
-      "email":"dcomford7@huffingtonpost.com",
-      "edad":"41"
-    },
-    {
-      "id":"9",
-      "nombre":"Thelma",
-      "apellido":"Elintune",
-      "email":"telintune8@house.gov",
-      "edad":"58"
-    },
-    {
-      "id":"10",
-      "nombre":"Jewelle",
-      "apellido":"Shoosmith",
-      "email":"jshoosmith9@themeforest.net",
-      "edad":"35"
-    },
-    {
-      "id":"11",
-      "nombre":"Elyn",
-      "apellido":"Dunkley",
-      "email":"edunkleya@moonfruit.com",
-      "edad":"25"
-    },
-    {
-      "id":"12",
-      "nombre":"Moishe",
-      "apellido":"Winspare",
-      "email":"mwinspareb@webeden.co.uk",
-      "edad":"59"
-    },
-    {
-      "id":"13",
-      "nombre":"Gilbertine",
-      "apellido":"Teale",
-      "email":"gtealec@github.com",
-      "edad":"58"
-    },
-    {
-      "id":"14",
-      "nombre":"Harris",
-      "apellido":"Beels",
-      "email":"hbeelsd@virginia.edu",
-      "edad":"27"
-    },
-    {
-      "id":"15",
-      "nombre":"Malchy",
-      "apellido":"Danilovitch",
-      "email":"mdanilovitche@theatlantic.com",
-      "edad":"25"
-    },
-    {
-      "id":"16",
-      "nombre":"Bevvy",
-      "apellido":"Shitliff",
-      "email":"bshitlifff@prnewswire.com",
-      "edad":"52"
-    },
-    {
-      "id":"17",
-      "nombre":"Alyce",
-      "apellido":"Maceur",
-      "email":"amaceurg@sphinn.com",
-      "edad":"24"
-    },
-    {
-      "id":"18",
-      "nombre":"Dex",
-      "apellido":"McCurley",
-      "email":"dmccurleyh@nps.gov",
-      "edad":"61"
-    },
-    {
-      "id":"19",
-      "nombre":"Derry",
-      "apellido":"Currer",
-      "email":"dcurreri@so-net.ne.jp",
-      "ed ad":"44"
-    },
-    {
-      "id":"20",
-      "nombre":"Eldon",
-      "apellido":"McWard",
-      "email":"emcwardj@washington.edu",
-      "edad":"37"
-    },
-    {
-      "id":"21",
-      "nombre":"Celestine",
-      "apellido":"Folca",
-      "email":"cfolcak@java.com",
-      "edad":"50"
-    },
-    {
-      "id":"22",
-      "nombre":"Skylar",
-      "apellido":"Farmiloe",
-      "email":"sfarmiloel@dropbox.com",
-      "edad":"25"
-    },
-    {
-      "id":"23",
-      "nombre":"Nola",
-      "apellido":"Droghan",
-      "email":"ndroghanm@narod.ru",
-      "edad":"54"
-    },
-    {
-      "id":"24",
-      "nombre":"Clevie",
-      "apellido":"Haisell",
-      "email":"chaiselln@spiegel.de",
-      "edad":"37"
+      "nombre":"Sinclair",
+      "img":"48"
     },
 ]
 
