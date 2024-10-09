@@ -6,29 +6,29 @@ import Carrousel from './Carrusel.js';
 
 const Home = () => {
     return (
-            <div id="main">
-                <Carrousel/>
-                <header class="major">
-                    <h2>Productos destacados</h2>
-                </header>
-                <section class="posts">
-                    {productos.length > 0 && productos.slice(0, 6).map(producto => (
-                        <Link to={`/detalles/${producto.id}`} key={producto.id}>
-                            <article>
-                                <header>
-                                    <h2>{producto.nombre}</h2>
-                                </header>
-                                <img src={producto.img} alt={producto.nombre}/>
-                            </article>
-                        </Link>
-                    ))}
-                </section>
+        <div id="main">
+            <Carrousel/>
+            <header class="major">
+                <h2>Productos destacados</h2>
+            </header>
+            <section class="posts">
+                {productos.length > 0 && productos.slice(0, 6).map(producto => (
+                    <Link to={`/detalles/${producto.id}`} key={producto.id}>
+                        <article>
+                            <header>
+                                <h2>{producto.nombre}</h2>
+                            </header>
+                            <img src={producto.img} alt={producto.nombre}/>
+                        </article>
+                    </Link>
+                ))}
+            </section>
 
-                <footer>
-                    <Link to={'/verProductos'}><button>Ver Más</button></Link>
-                </footer>
+            <footer>
+                <Link to={'/verProductos'}><button>Ver Más</button></Link>
+            </footer>
 
-            </div>
+        </div>
     )
 }
 

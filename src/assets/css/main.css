@@ -72,6 +72,10 @@ input, select, textarea {
 	appearance: none;
 }
 
+button {
+	text-decoration: none;
+}
+
 /* Basic */
 
 	@-ms-viewport {
@@ -2315,9 +2319,9 @@ input, select, textarea {
 		display: block;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-weight: 900;
-		line-height: 1.5;
+		line-height: 1;
 		letter-spacing: 0.075em;
-		font-size: 0.8rem;
+		font-size: 1rem;
 		text-transform: uppercase;
 		margin: 0 0 0.75rem 0;
 	}
@@ -2341,7 +2345,7 @@ input, select, textarea {
 		appearance: none;
 		background: transparent;
 		border-radius: 0;
-		border: solid 2px;
+		border: solid 1px;
 		color: inherit;
 		display: block;
 		outline: 0;
@@ -2379,7 +2383,7 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 3rem;
+		height: 2rem;
 	}
 
 	textarea {
@@ -3162,7 +3166,6 @@ input, select, textarea {
 			}
 
 		.pagination .previous:before {
-			content: '\f104';
 			margin-right: 0.9375em;
 		}
 
