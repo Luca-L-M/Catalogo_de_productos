@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/main.css'; // Importar el archivo de estilos para Home
-import productos from './Productos';
-import Carrousel from './Carrusel';
+import productos from './Productos.js';
+import Carrousel from './Carrusel.js';
 
 const Home = () => {
     return (
@@ -16,79 +16,25 @@ const Home = () => {
         </nav>
 
         <div id="main">
-
             <Carrousel/>
-
-            <article class="post featured">
-                <header class="major">
-                    <h2>Productos destacados</h2>
-                </header>
-            </article>
-
+            <header class="major">
+                <h2>Productos destacados</h2>
+            </header>
             <section class="posts">
-                <Link to={`/detalles/${productos[1].id}`}>
-                    <article>
-                        <header>
-                            <h2>{productos[1].nombre}</h2>
-                        </header>
-                        <img src={`productos[1].img`} alt=''/>
-                    </article>
-                </Link>
-                <Link to={`/detalles/${productos[2].id}`}>
-                    <article>
-                        <header>
-                            <h2>{productos[2].nombre}</h2>
-                        </header>
-                        <img src={`productos[2].img`} alt=''/>
-                    </article>
-                </Link>
-                <Link to={`/detalles/${productos[3].id}`}>
-                    <article>
-                        <header>
-                            <h2>{productos[3].nombre}</h2>
-                        </header>
-                        <img src={`productos[3].img`} alt=''/>
-                    </article>
-                </Link>
-                <Link to={`/detalles/${productos[4].id}`}>
-                    <article>
-                        <header>
-                            <h2>{productos[4].nombre}</h2>
-                        </header>
-                        <img src={`productos[4].img`} alt=''/>
-                    </article>
-                </Link>
-                <Link to={`/detalles/${productos[5].id}`}>
-                    <article>
-                        <header>
-                            <h2>{productos[5].nombre}</h2>
-                        </header>
-                        <img src={`productos[5].img`} alt=''/>
-                    </article>
-                </Link>
-                <Link to={`/detalles/${productos[6].id}`}>
-                    <article>
-                        <header>
-                            <h2>{productos[6].nombre}</h2>
-                        </header>
-                        <img src={`productos[6].img`} alt=''/>
-                    </article>
-                </Link>
+                {productos.length > 0 && productos.slice(0, 6).map(producto => (
+                    <Link to={`/detalles/${producto.id}`} key={producto.id}>
+                        <article>
+                            <header>
+                                <h2>{producto.nombre}</h2>
+                            </header>
+                            <img src={producto.img} alt={producto.nombre}/>
+                        </article>
+                    </Link>
+                ))}
             </section>
 
             <footer>
-                <button><a href="#" class="">Ver Más</a></button>
-                <div class="pagination">
-                    <a href="#" class="previous">Prev</a>
-                    <a href="#" class="page active">1</a>
-                    <a href="#" class="page">2</a>
-                    <a href="#" class="page">3</a>
-                    <span class="extra">&hellip;</span>
-                    <a href="#" class="page">8</a>
-                    <a href="#" class="page">9</a>
-                    <a href="#" class="page">10</a>
-                    <a href="#" class="next">Next</a>
-                </div>
+                <Link to={'/verProductos'}><button>Ver Más</button></Link>
             </footer>
 
         </div>
