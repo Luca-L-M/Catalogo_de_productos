@@ -2658,7 +2658,18 @@ button {
 			.image.main {
 				margin: 2rem 0;
 			}
+		}
 
+		.hover:hover {
+			-moz-transform: scale(1.2);
+			-webkit-transform: scale(1.2);
+			-ms-transform: scale(1.2);
+			transform: scale(1.2);
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Añadir sombra */
+		}
+
+		.hover {
+			transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadir transición */
 		}
 
 	a.image {
@@ -3853,7 +3864,7 @@ button {
 			}
 
 			#main > .posts > * {
-				padding: 4rem;
+				padding: 1rem;
 				width: 50%;
 			}
 

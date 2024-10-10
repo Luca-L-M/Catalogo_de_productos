@@ -28,7 +28,7 @@ const VerProductos = () => {
                 <section class="posts">
                     {productosSeleccionados.length > 0 && productosSeleccionados.map(producto => (
                         <Link to={`/detalles/${producto.id}`} key={producto.id}>
-                            <article>
+                            <article class="hover">
                                 <header>
                                     <h3>{producto.nombre}</h3>
                                 </header>

@@ -17,7 +17,7 @@ const Home = () => {
                 <section class="posts">
                     {productos.length > 0 && productos.slice(0, 6).map(producto => (
                         <Link to={`/detalles/${producto.id}`} key={producto.id}>
-                            <article>
+                            <article class="hover">
                                 <header>
                                     <h2>{producto.nombre}</h2>
                                 </header>

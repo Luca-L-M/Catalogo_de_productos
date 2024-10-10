@@ -14,9 +14,13 @@ const DetallesProducto = () => {
                     <header class="major">
                         <h3>{productos[id_producto].nombre}</h3>
                     </header>
-                    <img src={productos[id_producto].img} alt={productos[id_producto].nombre}/>
+                    <img src={productos[id_producto].img} alt={productos[id_producto].nombre}/> 
+                     <div>
+                        <h3>${productos[id_producto].precio}</h3>
+                        <p>{productos[id_producto].descripcion}</p>
+                    </div>
                     <ul class="actions special">
-                        <li><a href="#" class="button large">Comprar</a></li>
+                        <li><a href="#" class="button large">Comprar</a></li>  
                     </ul>
 				</article>
             </div>
