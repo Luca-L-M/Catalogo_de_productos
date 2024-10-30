@@ -1,11 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/css/main.css'; // Importar el archivo de estilos para Home
 import productos from './Productos.js';
+import '../assets/css/main.css'; // Importar el archivo de estilos para Home
 import Carrousel from './Carrusel.js';
 import Navbar from './Navbar.js';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+    // const [productos, setProductos] = useState([]);
+    // useEffect(() => {
+    //     fetch('https://dummyjson.com/products')
+    //         .then(response => response.json())
+    //         .then(data => setProductos(data.products))
+    //         .catch(error => console.error('Error:', error));
+    // }, []);
+    const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+        fetch('https://dummyjson.com/products')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.products); // Para verificar la estructura de datos
+                setProductos(data.products);
+            })
+            .catch(error => console.error('Error:', error));
+    }, []);
     return (
         <div id='wrapper'>
             <Navbar/>
