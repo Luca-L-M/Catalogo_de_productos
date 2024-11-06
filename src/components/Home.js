@@ -1,17 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/css/main.css'; // Importar el archivo de estilos para Home
+import '../assets/css/main.css'; 
 import Carrousel from './Carrusel.js';
 import Navbar from './Navbar.js';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Home = () => {
     const [productos, setProductos] = useState([]);
     useEffect(() => {
-        fetch('https://dummyjson.com/products')
-            .then(response => response.json())
-            .then(data => setProductos(data.products))
-            .catch(error => console.error('Error:', error));
+        axios.get('https://dummyjson.com/products')
+            .then(response => {
+                setProductos(response.data.products); 
+            })
+            .catch(error => {
+                console.error('Error al obtener productos:', error);
+            });
     }, []);
 
 
