@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import CartContext from './CartContext';
+import CarritoContext from './CarritoContext';
 
 function Carrito() {
-  const { cart, removeFromCart, clearCart } = useContext(CartContext);
+  const { cart, removeFromCart, clearCart } = useContext(CarritoContext);
 
   return (
     <div>

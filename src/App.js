@@ -6,12 +6,12 @@ import VerProductos from './components/VerProductos';
 import Contactos from './components/Contactos';
 import Carrito from './components/Carrito'
 import './App.css';  // Importar el archivo de estilos globales
-import { CarritoProvider } from './CarritoContext';
+import { CartProvider } from './components/CarritoContext';
 
 
 function App() {
   return (
-    <CarritoProvider>
+    <CartProvider>
     <Router>
       <div className="container">
         <Routes>
@@ -23,7 +23,7 @@ function App() {
         </Routes>
       </div>
     </Router>
-    </CarritoProvider>
+    </CartProvider>
   );
 }
 
