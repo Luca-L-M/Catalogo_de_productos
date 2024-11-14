@@ -36,6 +36,7 @@ import { useParams } from 'react-router-dom';
 import '../assets/css/main.css';
 import Navbar from './Navbar.js';
 import axios from 'axios';  
+import CarritoContext from '../CarritoContext';
 
 const DetallesProducto = () => {
     const { id_producto } = useParams();  
@@ -64,7 +65,10 @@ const DetallesProducto = () => {
     if (!producto) {
         return <div>Producto no encontrado</div>;  
     }
-
+const handleComprar=()=>
+{   
+    CarritoContext.agregarAlCarrito(producto);
+}
     return (
         <div>
             <Navbar />
@@ -79,7 +83,7 @@ const DetallesProducto = () => {
                         <p>{producto.description}</p> 
                     </div>
                     <ul className="actions special">
-                        <li><a href="#" className="button large">Comprar</a></li>  
+                    <button onClick={handleComprar}>Comprar</button>
                     </ul>
                 </article>
             </div>

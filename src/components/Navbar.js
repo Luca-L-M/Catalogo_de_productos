@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
 import '../assets/css/main.css';
- import CarritoContext from './CarritoContext';
+ import CarritoContext from '../CarritoContext';
 
 const Navbar = () => {
     

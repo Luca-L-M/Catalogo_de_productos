@@ -10,18 +10,39 @@ export const CartProvider = ({ children }) => {
   });
 
 
+  // const agregarAlCarrito = (item) => {
+  //   setCart((prevCart) => {
+  //     const updatedCart = [...prevCart, item];
+
+  //     localStorage.setItem('cart', JSON.stringify(updatedCart));
+  //     return updatedCart;
+  //   });
+  // };
+
   const agregarAlCarrito = (item) => {
     setCart((prevCart) => {
-      const updatedCart = [...prevCart, item];
-
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
-      return updatedCart;
+      const itemExistente = prevCart.find((cartItem) => cartItem.id === item.id);
+  
+      if (itemExistente) {
+        // Si el producto ya existe en el carrito, aumentar la cantidad
+        const updatedCart = prevCart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        return updatedCart;
+      } else {
+        // Si no existe, agregarlo al carrito
+        const updatedCart = [...prevCart, { ...item, quantity: 1 }];
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        return updatedCart;
+      }
     });
   };
 
   const editarCarrito = (itemId, updatedItem) => {
     setCart((prevCart) => {
-      // Actualizar el carrito reemplazando el ítem con el itemId dado
       const updatedCart = prevCart.map((item) =>
         item.id === itemId ? { ...item, ...updatedItem } : item
       );

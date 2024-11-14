@@ -6,7 +6,7 @@ import VerProductos from './components/VerProductos';
 import Contactos from './components/Contactos';
 import Carrito from './components/Carrito'
 import './App.css';  // Importar el archivo de estilos globales
-import { CartProvider } from './components/CarritoContext';
+import { CartProvider } from './CarritoContext';
 
 
 function App() {
