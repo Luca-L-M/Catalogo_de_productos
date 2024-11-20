@@ -55,7 +55,6 @@ const Navbar = () => {
     setIsModalOpen(true);
   };
 
-  // Función para cerrar el modal
   const cerrarModal = () => {
     setIsModalOpen(false);
   };
@@ -75,29 +74,9 @@ const Navbar = () => {
           <i className="fas fa-shopping-cart"></i>
           {cantProductos > 0 && <span className="cart-count">{cantProductos}</span>}
         </div>
-
-        {/* Desplegable del carrito */}
-        {isDropdownOpen && (
-          <div className="cart-dropdown">
-            {cart.length === 0 ? (
-              <p>El carrito está vacío</p>
-            ) : (
-              <ul>
-                {cart.map((item) => (
-                  <li key={item.id}>
-                    {item.name} x {item.quantity || 1} - ${item.price * (item.quantity || 1)}
-                  </li>
-                ))}
-              </ul>
-            )}
-            <div className="cart-total">
-              <strong>Total: ${precioTotal}</strong>
-            </div>
             <Link to="/carrito" className="go-to-cart">
               Ver carrito
             </Link>
-          </div>
-        )}
       </div>
       <CarritoModal isOpen={isModalOpen} onClose={cerrarModal} />
     </nav>
