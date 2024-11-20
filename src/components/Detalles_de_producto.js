@@ -31,7 +31,7 @@
 // export default DetallesProducto;
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import '../assets/css/main.css';
 import Navbar from './Navbar.js';
@@ -42,6 +42,8 @@ const DetallesProducto = () => {
     const { id_producto } = useParams();  
     const [producto, setProducto] = useState(null);  
     const [loading, setLoading] = useState(true); 
+
+    const { agregarAlCarrito } = useContext(CarritoContext); 
 
     useEffect(() => {
         axios.get('https://dummyjson.com/products')
@@ -67,7 +69,7 @@ const DetallesProducto = () => {
     }
 const handleComprar=()=>
 {   
-    CarritoContext.agregarAlCarrito(producto);
+    agregarAlCarrito(producto);
 }
     return (
         <div>
