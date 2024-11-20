@@ -1,36 +1,77 @@
+// import { Link } from 'react-router-dom';
+// import React, { useContext, useState } from 'react';
+// import '../assets/css/main.css';
+// import CarritoContext from '../CarritoContext';
+// import CarritoModal from './CarritoModal';
+
+// const Navbar = () => {
+//   const { cart, cantProductos, precioTotal } = useContext(CarritoContext);  
+//   const [isModalOpen, setIsModalOpen] = useState(false);  
+
+//   const abrirModal = () => {
+//     setIsModalOpen(true);
+//   };
+
+//   const cerrarModal = () => {
+//     setIsModalOpen(false);
+//   };
+
+//   return (
+//     <nav id="nav">
+//       <ul className="links">
+//         <li><Link to='/'>Home</Link></li>
+//         <li><Link to='/verProductos'>Productos</Link></li>
+//         <li><Link to='/contactos'>Contactos</Link></li>
+//       </ul>
+      
+//       {/* Ícono del carrito */}
+//       <div className="cart-icon-container">
+//         <div className="cart-icon" onClick={abrirModal}>
+//           <i className="fas fa-shopping-cart"></i>
+//           {cantProductos > 0 && <span className="cart-count">{cantProductos}</span>}
+//         </div>
+//       </div>
+
+//       {/* Modal Component */}
+//       <CarritoModal isOpen={isModalOpen} onClose={cerrarModal} />
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
 import { Link } from 'react-router-dom';
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../assets/css/main.css';
- import CarritoContext from '../CarritoContext';
+import CarritoContext from "../CarritoContext";
+import CarritoModal from './CarritoModal';
 
 const Navbar = () => {
-    
-    const { cart } = useContext(CarritoContext); 
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  
-   
-    const cantProductos = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
-  
-   
-    const precioTotal = cart.reduce((acc, item) => acc + (item.price * (item.quantity || 1)), 0).toFixed(2);
-  
-    // Manejar el clic en el ícono del carrito para abrir/cerrar el desplegable, no se que mierda es toggle
-    const toggleDropdown = () => {
-      setIsDropdownOpen(!isDropdownOpen);
-    };
-    
+  const { cart, cantProductos, precioTotal } = useContext(CarritoContext);  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);  
+  const [isModalOpen, setIsModalOpen] = useState(false);  
 
-    return (
-        <nav id="nav">
-            <ul class="links">
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/verProductos'>Productos</Link></li>
-                <li><Link to='/contactos'>Contactos</Link></li>
-            </ul>
+ 
+  const abrirModal = () => {
+    setIsModalOpen(true);
+  };
 
-            {/* Ícono del carrito */}
+  // Función para cerrar el modal
+  const cerrarModal = () => {
+    setIsModalOpen(false);
+  };
+ 
+
+  return (
+    <nav id="nav">
+      <ul className="links">
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/verProductos'>Productos</Link></li>
+        <li><Link to='/contactos'>Contactos</Link></li>
+      </ul>
+
+      {/* Ícono del carrito */}
       <div className="cart-icon-container">
-        <div className="cart-icon" onClick={toggleDropdown}>
+        <div className="cart-icon" onClick={abrirModal}>
           <i className="fas fa-shopping-cart"></i>
           {cantProductos > 0 && <span className="cart-count">{cantProductos}</span>}
         </div>
@@ -58,8 +99,9 @@ const Navbar = () => {
           </div>
         )}
       </div>
-        </nav>
-    )
-}
+      <CarritoModal isOpen={isModalOpen} onClose={cerrarModal} />
+    </nav>
+  );
+};
 
 export default Navbar;

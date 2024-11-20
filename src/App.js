@@ -12,17 +12,17 @@ import { CartProvider } from './CarritoContext';
 function App() {
   return (
     <CartProvider>
-    <Router>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/detalles/:id_producto" element={<DetallesProducto/>}/>
-          <Route path="/verProductos" element={<VerProductos/>}/>
-          <Route path="/contactos" element={<Contactos/>}/>
-          <Route path="/carrito" element={<Carrito />} />
-        </Routes>
-      </div>
-    </Router>
+      <Router>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/detalles/:id_producto" element={<DetallesProducto/>}/>
+            <Route path="/verProductos" element={<VerProductos/>}/>
+            <Route path="/contactos" element={<Contactos/>}/>
+            <Route path="/carrito" element={<Carrito />} />
+          </Routes>
+        </div>
+      </Router>
     </CartProvider>
   );
 }
