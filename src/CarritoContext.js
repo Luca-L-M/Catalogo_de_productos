@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const CarritoContext = createContext();
 
@@ -81,4 +81,6 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export default CarritoContext;
+export const useCart = () => {
+  return useContext(CarritoContext);
+};
