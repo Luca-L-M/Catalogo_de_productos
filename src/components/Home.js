@@ -7,7 +7,7 @@ import axios from 'axios';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { useCart } from './CarritoContext'; 
+import { useCart } from '../CarritoContext'
 
 
 const OffCanvasExample = ({ ...props }) => {
@@ -136,7 +136,7 @@ const styles = {
     padding: '2rem',
   },
   offcanvasHeader: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#282c34',
     color: 'white',
     borderBottom: '2px solid #ddd',
   },

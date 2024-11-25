@@ -36,14 +36,14 @@ import { useParams } from 'react-router-dom';
 import '../assets/css/main.css';
 import Navbar from './Navbar.js';
 import axios from 'axios';  
-import CarritoContext from '../CarritoContext';
+import { useCart } from '../CarritoContext.js';
 
 const DetallesProducto = () => {
     const { id_producto } = useParams();  
     const [producto, setProducto] = useState(null);  
     const [loading, setLoading] = useState(true); 
 
-    const { agregarAlCarrito } = useContext(CarritoContext); 
+    const { agregarAlCarrito } = useCart(); 
 
     useEffect(() => {
         axios.get('https://dummyjson.com/products')

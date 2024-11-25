@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import CarritoContext from '../CarritoContext';
+import { useCart } from '../CarritoContext';
 
 function Carrito() {
-  const { cart, removeFromCart, clearCart } = useContext(CarritoContext);
+  const { cart, removeFromCart, clearCart } = useCart();
 
   return (
     <div>
       <h2>Carrito de Compras</h2>
-      {cart.length === 0 ? (
+      {cart.find(item => item) == null ? (
         <p>El carrito está vacío</p>
       ) : (
         <ul>

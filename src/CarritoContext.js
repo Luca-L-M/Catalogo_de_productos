@@ -60,10 +60,22 @@ export const CartProvider = ({ children }) => {
       return updatedCart;
     });
   };
-  const cantProductos = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
-
-
-  const precioTotal = cart.reduce((acc, item) => acc + (item.price * (item.quantity || 1)), 0).toFixed(2);
+  let cantProductos = 0;
+  if (Array.isArray(cart)) {
+    cart.forEach((item) => {
+      cantProductos += item.quantity || 1;
+    });
+  }
+  
+  let precioTotal = 0;
+  if (Array.isArray(cart)) {
+    cart.forEach((item) => {
+      precioTotal += item.price * (item.quantity || 1);
+    });
+  }
+  
+  precioTotal = precioTotal.toFixed(2);
+  
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -75,7 +87,7 @@ export const CartProvider = ({ children }) => {
 
 
   return (
-    <CarritoContext.Provider value={{ cart, agregarAlCarrito, editarCarrito,eliminarDelCarrito }}>
+    <CarritoContext.Provider value={{ cart, agregarAlCarrito, editarCarrito,eliminarDelCarrito, cantProductos, precioTotal }}>
       {children}
     </CarritoContext.Provider>
   );
