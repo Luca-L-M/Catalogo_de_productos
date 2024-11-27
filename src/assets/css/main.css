@@ -103,7 +103,8 @@ button {
 	}
 
 	body {
-		background-color: #1e252d;
+		background-color: #b45c5c;
+		/* #1e252d; */
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {

@@ -2,8 +2,12 @@ import React, { useContext } from 'react';
 import { useCart } from '../CarritoContext';
 
 function Carrito() {
-  const { cart, removeFromCart, clearCart } = useCart();
+  const { cart, eliminarDelCarrito, clearCart } = useCart();
 
+  const handleEliminar=(item)=>
+  {
+    eliminarDelCarrito(item)
+  }
   return (
     <div>
       <h2>Carrito de Compras</h2>
@@ -13,8 +17,9 @@ function Carrito() {
         <ul>
           {cart.map((item) => (
             <li key={item.id}>
+              <img style={productoImagen} src={item.images} className="productoImagen"/>
               {item.name} - ${item.price}
-              <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
+              <button onClick={handleEliminar}>Eliminar</button>
             </li>
           ))}
         </ul>
@@ -25,3 +30,7 @@ function Carrito() {
 }
 
 export default Carrito;
+const productoImagen = {
+  width: "100px", 
+  height: "auto",   
+};

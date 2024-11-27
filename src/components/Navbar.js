@@ -111,7 +111,6 @@ const Navbar = () => {
         <li><Link to='/contactos'>Contactos</Link></li>
       </ul>
 
-      Ícono del carrito
       <div className="cart-icon-container">
         <div className="cart-icon" onClick={abrirModal}>
           <i className="fas fa-shopping-cart"></i>
@@ -119,10 +118,6 @@ const Navbar = () => {
         </div>
         <Link to="/carrito" className="go-to-cart">Ver carrito</Link>
       </div>
-
-      {/* Modal Component */}
-      {/* El modal se renderiza aquí, pero no está dentro del navbar */}
-
     </nav>
           {isModalOpen && <CarritoModal isOpen={isModalOpen} onClose={cerrarModal} />}
           </div>

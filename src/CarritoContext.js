@@ -11,15 +11,6 @@ export const CartProvider = ({ children }) => {
   });
 
 
-  // const agregarAlCarrito = (item) => {
-  //   setCart((prevCart) => {
-  //     const updatedCart = [...prevCart, item];
-
-  //     localStorage.setItem('cart', JSON.stringify(updatedCart));
-  //     return updatedCart;
-  //   });
-  // };
-
   const agregarAlCarrito = (item) => {
     setCart((prevCart) => {
       const itemExistente = prevCart.find((cartItem) => cartItem.id === item.id);
