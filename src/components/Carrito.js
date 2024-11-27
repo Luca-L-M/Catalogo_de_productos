@@ -1,15 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useCart } from '../CarritoContext';
 
 function Carrito() {
-  const { cart, eliminarDelCarrito, clearCart } = useCart();
+  const { cart, eliminarProductoDelCarrito, eliminarCantProductoDelCarrito } = useCart();
+  const [total, setTotal] = useState(0);
 
-  const handleEliminar=(item)=>
+  const handleEliminarProducto=(itemId)=>
   {
-    eliminarDelCarrito(item)
+    eliminarProductoDelCarrito(itemId)
   }
+  const handleEliminarCantProducto=(itemId)=>
+  {
+    eliminarCantProductoDelCarrito(itemId)
+  }
+  useEffect(() => {
+    const calcularTotal = () => {
+      let total = 0;
+      if (Array.isArray(cart)) {
+        cart.forEach((item) => {
+          total += item.price * (item.quantity || 1);
+        });
+      }
+      return total.toFixed(2);
+    };
+  
+    setTotal(calcularTotal());
+  }, [cart]);
+
   return (
-    <div>
+    <div style={{backgroundColor:'white'}}>
       <h2>Carrito de Compras</h2>
       {cart.find(item => item) == null ? (
         <p>El carrito está vacío</p>
@@ -18,13 +37,13 @@ function Carrito() {
           {cart.map((item) => (
             <li key={item.id}>
               <img style={productoImagen} src={item.images} className="productoImagen"/>
-              {item.name} - ${item.price}
-              <button onClick={handleEliminar}>Eliminar</button>
+              {item.name} x {item.quantity || 1} - ${item.price * (item.quantity || 1)}
+              <button onClick={() => handleEliminarProducto(item.id)}>Eliminar producto</button>
+              <button onClick={() => handleEliminarCantProducto(item.id)}>Eliminar 1</button>
             </li>
           ))}
         </ul>
       )}
-      <button onClick={clearCart}>Vaciar carrito</button>
     </div>
   );
 }
