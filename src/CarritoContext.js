@@ -25,6 +25,8 @@ export const CartProvider = ({ children }) => {
   }
   
   precioTotal = precioTotal.toFixed(2);
+
+  
   const agregarAlCarrito = (item) => {
     setCart((prevCart) => {
       const itemExistente = prevCart.find((cartItem) => cartItem.id === item.id);
@@ -47,15 +49,7 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const editarCarrito = (itemId, updatedItem) => {
-    setCart((prevCart) => {
-      const updatedCart = prevCart.map((item) =>
-        item.id === itemId ? { ...item, ...updatedItem } : item
-      );
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
-      return updatedCart;
-    });
-  };
+
 
   const eliminarProductoDelCarrito = (itemId) => {
     setCart((prevCart) => {
@@ -95,7 +89,7 @@ export const CartProvider = ({ children }) => {
 
 
   return (
-    <CarritoContext.Provider value={{ cart, agregarAlCarrito, editarCarrito,eliminarProductoDelCarrito,eliminarCantProductoDelCarrito, cantProductos, precioTotal }}>
+    <CarritoContext.Provider value={{ cart, agregarAlCarrito,eliminarProductoDelCarrito,eliminarCantProductoDelCarrito, cantProductos, precioTotal }}>
       {children}
     </CarritoContext.Provider>
   );

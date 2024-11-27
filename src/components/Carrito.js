@@ -28,14 +28,14 @@ function Carrito() {
   }, [cart]);
 
   return (
-    <div style={{backgroundColor:'white'}}>
+    <div style={{backgroundColor:'white', height:'35rem'}}>
       <h2>Carrito de Compras</h2>
       {cart.find(item => item) == null ? (
         <p>El carrito está vacío</p>
       ) : (
         <ul>
           {cart.map((item) => (
-            <li key={item.id}>
+            <li key={item.id} style={listaProducto}>
               <img style={productoImagen} src={item.images} className="productoImagen"/>
               {item.name} x {item.quantity || 1} - ${item.price * (item.quantity || 1)}
               <button onClick={() => handleEliminarProducto(item.id)}>Eliminar producto</button>
@@ -52,4 +52,11 @@ export default Carrito;
 const productoImagen = {
   width: "100px", 
   height: "auto",   
+};
+
+const listaProducto = {
+  listStyle:'none',
+  marginBottom:'2rem',
+  display:'block',
+  justifyContent: 'space-between',
 };
